@@ -9,6 +9,38 @@ class Tutor {
     private CPF $cpf;
     private Email $email;
     private Telefone $telefone;
-    private string $nome;
+    private Nome $nome;
+
+    public function getNome(): string {
+        return $this->nome->getNome();
+    }
+
+    public function getTelefone(): string {
+        return $this->telefone->getTelefone();
+    }
+
+    public function getEmail(): string {
+        return $this->email->getEmail();
+    }
+
+    public function getCpf(): string {
+        return $this->cpf->getCpf();
+    }
+
+    public function setNome(Nome $nome): void {
+        $this->nome = $nome;
+    }
+
+    public function setTelefone(Telefone $tel): void {
+        $this->telefone = $tel;
+    }
+
+    public function setEmail(Email $email): void {
+        $this->email = $email;
+    }
+
+    public function setCpf(CPF $cpf): void {
+        $this->cpf = $cpf;
+    }
 
 }

@@ -2,13 +2,27 @@
 
 require_once("../petshop/model/cpf.php");
 require_once("../petshop/model/Texto.php");
+require_once("../petshop/repository/conexao.php");
 
-$cpf = new CPF("078-451-799-14");
-echo($cpf->getCpf());
+// echo($cpf->getCpf());
 
 $texto = new Texto();
 
-echo("<br>");
-echo($texto->validarLimite("12"));
-echo("<br>");
-echo($texto->validarLimite("12345", 4));
+$conexao = new Conexao();
+try {
+    $cpf = new CPF("58225745906");
+    echo("CPF: " . $cpf->getCpf() ."<br>");
+    $tutor = $conexao->obterTutorCpf($cpf);
+    if (!$tutor['resposta']){
+        echo($tutor['mensagem'] . "<br>");
+    } else {
+        echo($tutor['mensagem'] . "<br>");
+        foreach ($tutor['dados'] as $key => $value){
+            echo("<br>$key: $value");
+        }
+
+    }
+} catch (Exception $erro){
+    echo($erro->getMessage());
+}
+

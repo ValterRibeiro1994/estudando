@@ -7,9 +7,9 @@ class CPF {
         // limpa pontos e traços do cpf
         $cpf = $this->limparCpf($cpf);
 
-        if (!$this->validarCpf($cpf)){
-            throw new Exception("Cpf Invalido !!!");
-        }
+        // if (!$this->validarCpf($cpf)){
+        //     throw new Exception("Cpf Invalido !!!");
+        // }
         $this->cpf = $cpf;
     }
 
